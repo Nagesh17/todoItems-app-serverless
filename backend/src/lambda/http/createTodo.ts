@@ -6,7 +6,7 @@ import { CreateTodoRequest } from '../../requests/CreateTodoRequest'
 
 import { createLogger } from '../../utils/logger'
 import { getJwtToken } from '../../auth/utils'
-import { createTodo } from '../../service/todoService'
+import { createTodo } from '../../businessLogic/todoService'
 import * as middy from 'middy'
 import { cors } from 'middy/middlewares'
 

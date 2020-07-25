@@ -4,7 +4,7 @@ import * as middy from 'middy'
 import { cors } from 'middy/middlewares'
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 import { createLogger } from '../../utils/logger'
-import {deleteTodoItem } from '../../service/todoService'
+import {deleteTodoItem } from '../../businessLogic/todoService'
 import { getJwtToken } from '../../auth/utils'
 
 const logger = createLogger('createTodo')

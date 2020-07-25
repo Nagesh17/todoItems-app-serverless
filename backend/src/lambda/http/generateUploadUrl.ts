@@ -4,7 +4,7 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 
 import * as middy from 'middy'
 import { cors } from 'middy/middlewares'
-import { getUploadUrl } from '../../service/todoService'
+import { getUploadUrl } from '../../businessLogic/todoService'
 import { createLogger } from '../../utils/logger'
 
 const logger = createLogger('generateUploadUrl')

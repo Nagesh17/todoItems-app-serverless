@@ -4,8 +4,13 @@ import { TodoItem } from '../models/TodoItem'
 import { createLogger } from '../utils/logger'
 import * as AWS  from 'aws-sdk'
 import { TodoUpdate } from '../models/TodoUpdate'
+const s3 = new AWS.S3({
+    signatureVersion: 'v4'
+  })
 
 const logger = createLogger('todoDao')
+const bucketName= process.env.TODO_S3_BUCKET
+const urlExpiration = process.env.SIGNED_URL_EXPIRATION
 export class TodoDao {
 
     constructor(
@@ -83,5 +88,13 @@ export class TodoDao {
             // delete based on Key: userId and todoId: 
             Key: { "userId": userId, "todoId": todoId }
         }).promise()
+    }
+
+    getUploadUrl(todoId: string){
+        return s3.getSignedUrl('putObject', {
+            Bucket: bucketName,
+            Key: todoId, 
+            Expires: urlExpiration
+        })
     }
 }

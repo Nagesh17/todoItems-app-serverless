@@ -1,5 +1,5 @@
 import 'source-map-support/register'
-import { updateTodoItem } from '../../service/todoService'
+import { updateTodoItem } from '../../businessLogic/todoService'
 import { APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda'
 import * as middy from 'middy'
 import { cors } from 'middy/middlewares'
